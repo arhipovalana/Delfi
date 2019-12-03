@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 import pages.BaseFunction;
 import pages.HomePage;
-
 
 public class ArticleAndCommentCompareTest {
 
@@ -14,18 +14,19 @@ public class ArticleAndCommentCompareTest {
         // Open Delfi Home Page
         baseFunc.goToUrl("rus.delfi.lv");
 
-        // передали тесту класс (страницу, на которой будем работать)
-        HomePage homePage = new HomePage(baseFunc); // создали копию класса HomePage, чтоб дальше писать тест используя переменные и методы HomePage
+        HomePage homePage = new HomePage(baseFunc);
 
+        // Get first article title text
+        String homepageTitle = homePage.getTitleText(0);
+        System.out.println("Home page first article title is: " + homepageTitle);
 
-        // Find first article
-        homePage.homePageFirstArticle();
-        // Find first article title
+        // Get first article comment count number
+        Integer homepageComments = homePage.getCommentCount(0);
+        System.out.println("Home page First article comment count is: " + homepageComments);
 
-        // Save article to String
-        // Find comment count
-        // Save comment count to Integer
         // Open article page
+        homePage.openArticlePage(0);
+
         // Find title on article page
         // Check titles
         // Find comment count on article page
