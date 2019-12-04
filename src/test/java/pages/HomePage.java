@@ -35,8 +35,6 @@ public class HomePage {
         } else {
             return String.valueOf(article = null);
         }
-
-
     }
 
 //    public Integer getCommentCount(int articleIndex) {
