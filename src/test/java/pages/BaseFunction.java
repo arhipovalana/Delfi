@@ -37,6 +37,9 @@ public class BaseFunction {
         return browserDrv.findElements(locator);
     }
 
+    //функция, которая получает String из элемента
+
+
 //    // функция, которая удаляет скобки и возвращает Integer
 //    public Integer removeBrackets(String valueWithBrackets){
 //        return Integer.valueOf(valueWithBrackets.replaceAll("([()])","").trim());
@@ -52,9 +55,9 @@ public class BaseFunction {
         return Integer.valueOf(text);
     }
 
-//    // функция, которая кликает по элементу
-//    public WebElement clickOnElement(WebElement element) {
-//        return element.click();
-//    }
+    // функция, которая кликает по элементу
+    public void click(WebElement element) {
+        element.click();
+    }
 
 }
