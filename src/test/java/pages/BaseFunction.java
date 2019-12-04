@@ -39,7 +39,6 @@ public class BaseFunction {
 
     //функция, которая получает String из элемента
 
-
 //    // функция, которая удаляет скобки и возвращает Integer
 //    public Integer removeBrackets(String valueWithBrackets){
 //        return Integer.valueOf(valueWithBrackets.replaceAll("([()])","").trim());
