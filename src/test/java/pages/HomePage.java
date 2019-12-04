@@ -32,7 +32,6 @@ public class HomePage {
         article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
 
 
-        return getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_TITLES).getText().trim();
     }
 
 //    public Integer getCommentCount(int articleIndex) {
