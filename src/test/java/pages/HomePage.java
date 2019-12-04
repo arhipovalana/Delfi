@@ -29,7 +29,12 @@ public class HomePage {
 
     public String getTitleText(int articleIndex) {
         WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
-        article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
+        List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
+        if (!titleList.isEmpty()){
+            return article.getText().trim();
+        } else {
+            return String.valueOf(article = null);
+        }
 
 
     }
