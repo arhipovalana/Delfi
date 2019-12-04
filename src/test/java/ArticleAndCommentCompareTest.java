@@ -15,12 +15,15 @@ public class ArticleAndCommentCompareTest {
 
         HomePage homePage = new HomePage(baseFunc);
 
+        Integer articleIndex = 0;
+
         // Get first article title text
-        String homepageTitle = homePage.getTitleText(1);
-        System.out.println("Home page first article title is: " + homepageTitle);
+        String homepageTitle = homePage.getTitleText(articleIndex);
+//        System.out.println("Home page first article title is: " + homepageTitle);
+        System.out.println("Home page " + ++articleIndex + " article title is: " + homepageTitle);
 
         // Get first article comment count number
-        Integer homepageComments = homePage.getCommentCount(1);
+        Integer homepageComments = homePage.getCommentCount(0);
         System.out.println("Home page First article comment count is: " + homepageComments);
 
         // Open article page

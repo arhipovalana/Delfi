@@ -21,37 +21,46 @@ public class HomePage {
         Assertions.assertFalse(articleBlockList.isEmpty(), "There is no any article on Home Page");
         return articleBlockList;
     }
-
+    // первый вариант метода
 //    public String getTitleText(int articleIndex) {
 //    //    if (!getArticleList().isEmpty()) ; // тут нужна другая проверка - есть ли элемент в элементе
 //        return getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_TITLES).getText().trim();
 //    }
 
+    // второй вариант метода
     public String getTitleText(int articleIndex) {
-        WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
-        List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
-        if (!titleList.isEmpty()){
-            return article.getText().trim();
+        if (getArticleList().size()>articleIndex){
+            WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
+            List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
+            if (!titleList.isEmpty()){
+                return article.getText().trim();
+            } else {
+                return null;
+//                return String.valueOf(article = null);
+            }
         } else {
-            return String.valueOf(article = null);
+            return null;
         }
     }
 
 //    public Integer getCommentCount(int articleIndex) {
-//        if (!baseFunc.getElementList(HOME_PAGE_ARTICLE_COMMENTS).isEmpty()) {
-//            String commentCount = baseFunc.removeBrackets(getArticleList().get(articleIndex).findElements(HOME_PAGE_ARTICLE_COMMENTS).get(articleIndex).getText());
-//            return baseFunc.changeStringToInteger(commentCount);
-//        } else {
-//            Integer commentCount = 0;
-//            return commentCount;
-//        }
+//        //    if (!getArticleList().isEmpty()) ; // тут нужна другая проверка - есть ли элемент в элементе
+//        String commentCount = baseFunc.removeBrackets(getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_COMMENTS).getText());
+//        return baseFunc.changeStringToInteger(commentCount);
 //    }
 
     public Integer getCommentCount(int articleIndex) {
-        //    if (!getArticleList().isEmpty()) ; // тут нужна другая проверка - есть ли элемент в элементе
-        String commentCount = baseFunc.removeBrackets(getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_COMMENTS).getText());
-        return baseFunc.changeStringToInteger(commentCount);
+        WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
+        List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
+        if (!commentList.isEmpty()) {
+            String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
+            return baseFunc.changeStringToInteger(commentCount);
+        } else {
+            Integer commentCount = 0;
+            return commentCount;
+        }
     }
+
 
 //    public WebElement openArticlePage(int articleIndex) {
 //        WebElement element = articleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_TITLES);
