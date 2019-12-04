@@ -55,7 +55,7 @@ public class BaseFunction {
     }
 
     // функция, которая кликает по элементу
-    public void click(WebElement element) {
+    public void clickOnElement(WebElement element) {
         element.click();
     }
 

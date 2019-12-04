@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import pages.ArticlePage;
 import pages.BaseFunction;
 import pages.HomePage;
 
@@ -15,19 +16,22 @@ public class ArticleAndCommentCompareTest {
 
         HomePage homePage = new HomePage(baseFunc);
 
-        Integer articleIndex = 0;
+        Integer articleNumber = 4;
 
         // Get first article title text
-        String homepageTitle = homePage.getTitleText(articleIndex);
-//        System.out.println("Home page first article title is: " + homepageTitle);
-        System.out.println("Home page " + ++articleIndex + " article title is: " + homepageTitle);
+        String homepageTitle = homePage.getTitleText(articleNumber);
+        System.out.println("Home page article Nm " + (articleNumber+1) + " title is: " + homepageTitle);
 
         // Get first article comment count number
-        Integer homepageComments = homePage.getCommentCount(0);
-        System.out.println("Home page First article comment count is: " + homepageComments);
+        Integer homepageComments = homePage.getCommentCount(articleNumber);
+        System.out.println("Home page article Nm " + (articleNumber+1) + " comment count is: " + homepageComments);
 
         // Open article page
-        //homePage.openArticlePage(0);
+        homePage.openArticlePage(articleNumber);
+
+        ArticlePage articlePage = new ArticlePage(baseFunc);
+
+
 
         // Find title on article page
         // Check titles

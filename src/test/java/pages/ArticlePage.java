@@ -11,4 +11,7 @@ public class ArticlePage {
     public ArticlePage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
     }
+
+
+
 }
