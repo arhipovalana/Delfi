@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 import pages.BaseFunction;
 import pages.HomePage;
 
@@ -17,15 +16,15 @@ public class ArticleAndCommentCompareTest {
         HomePage homePage = new HomePage(baseFunc);
 
         // Get first article title text
-        String homepageTitle = homePage.getTitleText(0);
+        String homepageTitle = homePage.getTitleText(1);
         System.out.println("Home page first article title is: " + homepageTitle);
 
         // Get first article comment count number
-        Integer homepageComments = homePage.getCommentCount(0);
+        Integer homepageComments = homePage.getCommentCount(1);
         System.out.println("Home page First article comment count is: " + homepageComments);
 
         // Open article page
-        homePage.openArticlePage(0);
+        //homePage.openArticlePage(0);
 
         // Find title on article page
         // Check titles
