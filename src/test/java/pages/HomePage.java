@@ -8,7 +8,7 @@ public class HomePage {
 
     private BaseFunction baseFunc;
 
-    private final By HOME_PAGE_ARTICLES = By.xpath(".//article[contains(@class, 'headline')]");
+    private final By HOME_PAGE_ARTICLES = By.xpath("//article[contains(@class, 'headline')]");
     private final By HOME_PAGE_ARTICLE_TITLES = By.xpath(".//*[contains(@class, 'headline__title')]");
     private final By HOME_PAGE_ARTICLE_COMMENTS = By.xpath(".//a[@class = 'comment-count text-red-ribbon']");
 

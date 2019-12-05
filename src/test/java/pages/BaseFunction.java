@@ -48,6 +48,10 @@ public class BaseFunction {
     public String removeBrackets(String textWithBrackets){
         return textWithBrackets.replaceAll("([()])","").trim();
     }
+//    //  функция, которая удаляет скобки и цыфры из текста
+//    public String removeBracketsAndNumbers(String textWithBracketsAndNumbers){
+//        return textWithBracketsAndNumbers.replaceAll("([(0-9)])","").trim();
+//    }
 
     // функция, которая меняет тип String на Integer
     public Integer changeStringToInteger(String text){

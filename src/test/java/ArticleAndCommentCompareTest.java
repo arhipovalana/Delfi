@@ -16,7 +16,7 @@ public class ArticleAndCommentCompareTest {
 
         HomePage homePage = new HomePage(baseFunc);
 
-        Integer articleNumber = 4;
+        Integer articleNumber = 0;
 
         // Get first article title text
         String homepageTitle = homePage.getTitleText(articleNumber);
@@ -31,11 +31,15 @@ public class ArticleAndCommentCompareTest {
 
         ArticlePage articlePage = new ArticlePage(baseFunc);
 
+        // Get article title text
+        String articlepageTitle = articlePage.getTitleText();
+        System.out.println((articleNumber+1) +" Article page title is: "articlepageTitle);
 
+        // Get comment count number
+        Integer articlepageComments = articlePage.getCommentCount();
+        System.out.println((articleNumber+1) + " Article page comment count is: "articlepageComments);
 
-        // Find title on article page
         // Check titles
-        // Find comment count on article page
         // Check comment count
         // Open comments page
         // Find title
