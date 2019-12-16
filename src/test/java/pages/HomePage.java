@@ -21,36 +21,21 @@ public class HomePage {
         Assertions.assertFalse(articleBlockList.isEmpty(), "There is no any article on Home Page");
         return articleBlockList;
     }
-//    // первый вариант метода для заголовка
-//    public String getTitleText(Integer articleIndex) {
-//    //    if (!getArticleList().isEmpty()) ; // тут нужна другая проверка - есть ли элемент в элементе
-//        return getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_TITLES).getText().trim();
-//    }
 
-    // второй вариант метода для заголовка
     public String getTitleText(Integer articleIndex) {
         if (getArticleList().size()>articleIndex){
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
             if (!titleList.isEmpty()){
-//                return article.getText().trim();
                 return titleList.get(0).getText().trim();
             } else {
                 return null;
-//                return String.valueOf(article = null);
             }
         } else {
             return null;
         }
     }
-//    // первый вариант метода для коментов
-//    public Integer getCommentCount(Integer articleIndex) {
-//        //    if (!getArticleList().isEmpty()) ; // тут нужна другая проверка - есть ли элемент в элементе
-//        String commentCount = baseFunc.removeBrackets(getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_COMMENTS).getText());
-//        return baseFunc.changeStringToInteger(commentCount);
-//    }
 
-//    // второй вариант метода для коментов
     public Integer getCommentCount(Integer articleIndex) {
         if (getArticleList().size()>articleIndex) {
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х

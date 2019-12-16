@@ -63,4 +63,9 @@ public class BaseFunction {
         element.click();
     }
 
+    // функция, которая закрывает браузер
+    public void quit(){
+        browserDrv.close();
+    }
+
 }
