@@ -11,7 +11,6 @@ public class ArticleAndCommentCompareTest {
 
     // Open Browser
     private BaseFunction baseFunc = new BaseFunction();
-
     private final Logger LOGGER = LogManager.getLogger(ArticleAndCommentCompareTest.class);
 
     @Test
