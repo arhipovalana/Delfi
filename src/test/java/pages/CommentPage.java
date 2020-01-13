@@ -1,4 +1,6 @@
 package pages;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -6,6 +8,7 @@ import java.util.List;
 public class CommentPage {
 
     private BaseFunction baseFunc;
+    private final Logger LOGGER = LogManager.getLogger(CommentPage.class);
 
 
     private final By COMMENT_PAGE_TITLE = By.xpath("//*[@class = 'article-title']");
@@ -14,6 +17,7 @@ public class CommentPage {
 
     public CommentPage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
+        LOGGER.info("Start working in Comment Page class");
     }
 
     public String getTitleText(){
