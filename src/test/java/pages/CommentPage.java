@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -20,6 +21,12 @@ public class CommentPage {
     public CommentPage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
         LOGGER.info("Start working in Comment Page class");
+        WebElement title = baseFunc.getElementList(COMMENT_PAGE_TITLE).get(0);
+        Assertions.assertNotNull(title, "There is no title on Article page");
+        LOGGER.info("Checking title");
+        WebElement comments = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT).get(0);
+        Assertions.assertNotNull(comments, "There is no comment on Article page");
+        LOGGER.info("Checking comments");
     }
 
     public String getTitleText() {
