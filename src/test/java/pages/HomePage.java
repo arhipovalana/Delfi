@@ -1,9 +1,11 @@
 package pages;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class HomePage {
@@ -27,10 +29,10 @@ public class HomePage {
     }
 
     public String getTitleText(Integer articleIndex) {
-        if (getArticleList().size()>articleIndex){
+        if (getArticleList().size() > articleIndex) {
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
-            if (!titleList.isEmpty()){
+            if (!titleList.isEmpty()) {
                 return titleList.get(0).getText().trim();
             } else {
                 return null;
@@ -41,7 +43,7 @@ public class HomePage {
     }
 
     public Integer getCommentCount(Integer articleIndex) {
-        if (getArticleList().size()>articleIndex) {
+        if (getArticleList().size() > articleIndex) {
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
             if (!commentList.isEmpty()) {

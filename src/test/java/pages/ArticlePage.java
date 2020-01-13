@@ -1,4 +1,5 @@
 package pages;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -19,16 +20,16 @@ public class ArticlePage {
         LOGGER.info("Start working in Article Page class");
     }
 
-    public String getTitleText(){
-       List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
-       if (!titleList.isEmpty()) {
-           return titleList.get(0).getText().trim();
-       } else {
-           return null;
-       }
+    public String getTitleText() {
+        List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
+        if (!titleList.isEmpty()) {
+            return titleList.get(0).getText().trim();
+        } else {
+            return null;
+        }
     }
 
-    public Integer getCommentCount(){
+    public Integer getCommentCount() {
         List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
         if (!commentList.isEmpty()) {
             String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
