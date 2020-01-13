@@ -1,10 +1,9 @@
 package pages;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class ArticlePage {
@@ -18,7 +17,15 @@ public class ArticlePage {
     public ArticlePage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
         LOGGER.info("Start working in Article Page class");
+        WebElement title = baseFunc.getElementList(ARTICLE_PAGE_TITLE).get(0);
+        Assertions.assertNotNull(title, "There is no title on Article page");
+        LOGGER.info("Checking title");
+        WebElement comments = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS).get(0);
+        Assertions.assertNotNull(comments, "There is no comment on Article page");
+        LOGGER.info("Checking comments");
     }
+
+    // assertNotNull(articlePageTitle, "There is no title on Article page");
 
     public String getTitleText() {
         List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
