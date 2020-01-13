@@ -1,11 +1,13 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import pages.ArticlePage;
 import pages.BaseFunction;
 import pages.CommentPage;
 import pages.HomePage;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArticleAndCommentCompareTest {
 
@@ -19,7 +21,6 @@ public class ArticleAndCommentCompareTest {
         LOGGER.info("Open Delfi home page");
         baseFunc.goToUrl("rus.delfi.lv");
 
-        LOGGER.info("Start working in home page class");
         HomePage homePage = new HomePage(baseFunc);
 
         LOGGER.info("Choose article Nm.");
@@ -27,55 +28,69 @@ public class ArticleAndCommentCompareTest {
 
         LOGGER.info("Get article title text");
         String homePageTitle = homePage.getTitleText(articleNumber);
-        System.out.println("(" + (articleNumber+1) + ") article title on Home page is: " + homePageTitle);
+//        System.out.println("(" + (articleNumber+1) + ") article title on Home page is: " + homePageTitle);
 
         LOGGER.info("Get article comment count number");
         Integer homePageComments = homePage.getCommentCount(articleNumber);
-        System.out.println("(" + (articleNumber+1) + ") article comment count on Home page is: " + homePageComments);
+//        System.out.println("(" + (articleNumber+1) + ") article comment count on Home page is: " + homePageComments);
 
         LOGGER.info("Open article page");
-        homePage.openArticlePage(articleNumber);
+        ArticlePage articlePage = homePage.openArticlePage(articleNumber);
 
-        LOGGER.info("Start working in article page class");
-        ArticlePage articlePage = new ArticlePage(baseFunc);
+//        LOGGER.info("Open article page");
+//        homePage.openArticlePage(articleNumber);
+
+//        LOGGER.info("Start working in article page class");
+//        ArticlePage articlePage = new ArticlePage(baseFunc);
 
         LOGGER.info("Get article title text");
         String articlePageTitle = articlePage.getTitleText();
-        Assertions.assertNotNull(articlePageTitle, "There is no title on Article page");
-        System.out.println("(" + (articleNumber+1) +") article title on Article page is: " + articlePageTitle);
+        assertNotNull(articlePageTitle, "There is no title on Article page");
+//        System.out.println("(" + (articleNumber+1) +") article title on Article page is: " + articlePageTitle);
 
         LOGGER.info("Get comment count number");
         Integer articlePageComments = articlePage.getCommentCount();
-        Assertions.assertNotNull(articlePageComments,"There is no comments on Article page");
-        System.out.println("(" + (articleNumber+1) + ") article comment count on Article page is: " + articlePageComments);
+        assertNotNull(articlePageComments,"There is no comments on Article page");
+//        System.out.println("(" + (articleNumber+1) + ") article comment count on Article page is: " + articlePageComments);
 
         LOGGER.info("Check titles");
-        Assertions.assertEquals(homePageTitle, articlePageTitle, "Title on article page isn't the same than on Home page");
+        assertEquals(homePageTitle, articlePageTitle, "Title on article page isn't the same than on Home page");
 
         LOGGER.info("Check comment count");
-        Assertions.assertEquals(homePageComments, articlePageComments, "Comment count on article page isn't the same than on Home page!");
+        assertEquals(homePageComments, articlePageComments, "Comment count on article page isn't the same than on Home page!");
 
-        LOGGER.info("Open comments page");
-        articlePage.openCommentPage();
+        LOGGER.info("Open article page");
+        CommentPage commentPage = articlePage.openCommentPage();
 
-        LOGGER.info("Start working in comment page class");
-        CommentPage commentPage = new CommentPage(baseFunc);
+//        LOGGER.info("Open comments page");
+//        articlePage.openCommentPage();
+//
+//        LOGGER.info("Start working in comment page class");
+//        CommentPage commentPage = new CommentPage(baseFunc);
 
         LOGGER.info("Get article title text");
         String commentPageTitle = commentPage.getTitleText();
-        System.out.println("(" + (articleNumber+1) + ") article title on Comment page is: " + commentPageTitle);
+//        System.out.println("(" + (articleNumber+1) + ") article title on Comment page is: " + commentPageTitle);
 
         LOGGER.info("Get comment count number");
         Integer commentPageComments = commentPage.getCommentCount();
-        System.out.println("(" + (articleNumber+1) + ") article comment count on Comment page is: " + commentPageComments);
+//        System.out.println("(" + (articleNumber+1) + ") article comment count on Comment page is: " + commentPageComments);
 
         LOGGER.info("Check titles");
-        Assertions.assertEquals(articlePageTitle,commentPageTitle,"Title on comment page isn't the same than on Article page");
+        assertEquals(articlePageTitle,commentPageTitle,"Title on comment page isn't the same than on Article page");
 
         LOGGER.info("Check comment count");
-        Assertions.assertEquals(articlePageComments,commentPageComments,"Comment count on comment page isn't the same than on Article page!");
+        assertEquals(articlePageComments,commentPageComments,"Comment count on comment page isn't the same than on Article page!");
 
+//        LOGGER.info("Close browser");
+//        baseFunc.quit();
+    }
+
+        @AfterEach
+        public void closeBrowser(){
         LOGGER.info("Close browser");
         baseFunc.quit();
-    }
+        }
+
+
 }
