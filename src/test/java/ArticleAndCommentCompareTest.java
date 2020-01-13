@@ -6,6 +6,7 @@ import pages.ArticlePage;
 import pages.BaseFunction;
 import pages.CommentPage;
 import pages.HomePage;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArticleAndCommentCompareTest {
@@ -39,7 +40,7 @@ public class ArticleAndCommentCompareTest {
 
         LOGGER.info("Get comment count number");
         Integer articlePageComments = articlePage.getCommentCount();
-        assertNotNull(articlePageComments,"There is no comments on Article page");
+        assertNotNull(articlePageComments, "There is no comments on Article page");
 
         LOGGER.info("Check titles");
         assertEquals(homePageTitle, articlePageTitle, "Title on article page isn't the same than on Home page");
@@ -57,18 +58,18 @@ public class ArticleAndCommentCompareTest {
         Integer commentPageComments = commentPage.getCommentCount();
 
         LOGGER.info("Check titles");
-        assertEquals(articlePageTitle,commentPageTitle,"Title on comment page isn't the same than on Article page");
+        assertEquals(articlePageTitle, commentPageTitle, "Title on comment page isn't the same than on Article page");
 
         LOGGER.info("Check comment count");
-        assertEquals(articlePageComments,commentPageComments,"Comment count on comment page isn't the same than on Article page!");
+        assertEquals(articlePageComments, commentPageComments, "Comment count on comment page isn't the same than on Article page!");
 
     }
 
-        @AfterEach
-        public void closeBrowser(){
+    @AfterEach
+    public void closeBrowser() {
         LOGGER.info("Close browser");
         baseFunc.quit();
-        }
+    }
 
 
 }
