@@ -18,7 +18,7 @@ public class ArticleAndCommentCompareTest {
     public void titleAndCommentsTest() {
 
         LOGGER.info("Open Delfi home page");
-        baseFunc.goToUrl("rus.delfi.lv");
+        baseFunc.goToUrl("delfi.lv");
 
         HomePage homePage = new HomePage(baseFunc);
 
