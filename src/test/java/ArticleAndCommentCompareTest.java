@@ -13,6 +13,7 @@ public class ArticleAndCommentCompareTest {
 
     private BaseFunction baseFunc = new BaseFunction();
     private final Logger LOGGER = LogManager.getLogger(ArticleAndCommentCompareTest.class);
+    private int articleNumber = 1;
 
     @Test
     public void titleAndCommentsTest() {
@@ -22,10 +23,7 @@ public class ArticleAndCommentCompareTest {
 
         HomePage homePage = new HomePage(baseFunc);
 
-        LOGGER.info("Choose article Nm.");
-        Integer articleNumber = 1;
-
-        LOGGER.info("Get article title text");
+        LOGGER.info("Get title text for article Nm " +articleNumber);
         String homePageTitle = homePage.getTitleText(articleNumber);
 
         LOGGER.info("Get article comment count number");
