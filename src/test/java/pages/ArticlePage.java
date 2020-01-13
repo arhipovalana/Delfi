@@ -19,10 +19,8 @@ public class ArticlePage {
         LOGGER.info("Start working in Article Page class");
         WebElement title = baseFunc.getElementList(ARTICLE_PAGE_TITLE).get(0);
         Assertions.assertNotNull(title, "There is no title on Article page");
-        LOGGER.info("Checking title");
         WebElement comments = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS).get(0);
         Assertions.assertNotNull(comments, "There is no comment on Article page");
-        LOGGER.info("Checking comments");
     }
 
     // assertNotNull(articlePageTitle, "There is no title on Article page");

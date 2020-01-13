@@ -23,10 +23,8 @@ public class CommentPage {
         LOGGER.info("Start working in Comment Page class");
         WebElement title = baseFunc.getElementList(COMMENT_PAGE_TITLE).get(0);
         Assertions.assertNotNull(title, "There is no title on Article page");
-        LOGGER.info("Checking title");
         WebElement comments = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT).get(0);
         Assertions.assertNotNull(comments, "There is no comment on Article page");
-        LOGGER.info("Checking comments");
     }
 
     public String getTitleText() {
