@@ -6,7 +6,6 @@ import pages.ArticlePage;
 import pages.BaseFunction;
 import pages.CommentPage;
 import pages.HomePage;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArticleAndCommentCompareTest {
