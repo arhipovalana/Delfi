@@ -1,11 +1,9 @@
 package pages;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class CommentPage {
@@ -13,10 +11,8 @@ public class CommentPage {
     private BaseFunction baseFunc;
     private final Logger LOGGER = LogManager.getLogger(CommentPage.class);
 
-
     private final By COMMENT_PAGE_TITLE = By.xpath("//*[@class = 'article-title']");
     private final By COMMENT_PAGE_COMMENT_COUNT = By.className("type-cnt");
-
 
     public CommentPage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
