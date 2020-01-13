@@ -62,7 +62,6 @@ public class ArticleAndCommentCompareTest {
 
         LOGGER.info("Check comment count");
         assertEquals(articlePageComments, commentPageComments, "Comment count on comment page isn't the same than on Article page!");
-
     }
 
     @AfterEach
@@ -70,6 +69,5 @@ public class ArticleAndCommentCompareTest {
         LOGGER.info("Close browser");
         baseFunc.quit();
     }
-
 
 }
