@@ -1,4 +1,6 @@
 package pages;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,6 +9,7 @@ import java.util.List;
 public class HomePage {
 
     private BaseFunction baseFunc;
+    private final Logger LOGGER = LogManager.getLogger(HomePage.class);
 
     private final By HOME_PAGE_ARTICLES = By.xpath("//article[contains(@class, 'headline')]");
     private final By HOME_PAGE_ARTICLE_TITLES = By.xpath(".//*[contains(@class, 'headline__title')]");
@@ -14,6 +17,7 @@ public class HomePage {
 
     public HomePage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
+        LOGGER.info("Start working in Home Page class");
     }
 
     private List<WebElement> getArticleList() {
@@ -52,9 +56,10 @@ public class HomePage {
         }
     }
 
-    public void openArticlePage(Integer articleIndex) {
+    public ArticlePage openArticlePage(Integer articleIndex) {
         WebElement element = getArticleList().get(articleIndex).findElement(HOME_PAGE_ARTICLE_TITLES);
         baseFunc.clickOnElement(element);
+        return new ArticlePage(baseFunc);
     }
 
 }
