@@ -17,6 +17,7 @@ public class ArticlePage {
     public ArticlePage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
         LOGGER.info("Start working in Article Page class");
+
     }
 
     public String getTitleText(){
