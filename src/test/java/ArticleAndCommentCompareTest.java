@@ -6,7 +6,6 @@ import pages.ArticlePage;
 import pages.BaseFunction;
 import pages.CommentPage;
 import pages.HomePage;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArticleAndCommentCompareTest {
@@ -34,11 +33,9 @@ public class ArticleAndCommentCompareTest {
 
         LOGGER.info("Get article title text");
         String articlePageTitle = articlePage.getTitleText();
-        assertNotNull(articlePageTitle, "There is no title on Article page");
 
         LOGGER.info("Get comment count number");
         Integer articlePageComments = articlePage.getCommentCount();
-        assertNotNull(articlePageComments, "There is no comments on Article page");
 
         LOGGER.info("Check titles");
         assertEquals(homePageTitle, articlePageTitle, "Title on article page isn't the same than on Home page");
