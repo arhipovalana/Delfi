@@ -23,8 +23,6 @@ public class ArticlePage {
         Assertions.assertNotNull(comments, "There is no comment on Article page");
     }
 
-    // assertNotNull(articlePageTitle, "There is no title on Article page");
-
     public String getTitleText() {
         List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
         if (!titleList.isEmpty()) {
