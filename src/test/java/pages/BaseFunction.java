@@ -14,7 +14,7 @@ public class BaseFunction {
 
     private WebDriver browserDrv;
     private WebDriverWait wait;
-    private final Logger LOGGER = LogManager.getLogger(BaseFunction.class);
+//    private final Logger LOGGER = LogManager.getLogger(BaseFunction.class);
 
     public BaseFunction() {
         System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
@@ -25,8 +25,7 @@ public class BaseFunction {
     }
 
     public void goToUrl(String url) {
-        if (url.startsWith("http://") || url.startsWith("https://")) {
-        } else {
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
         browserDrv.get(url);
