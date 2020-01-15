@@ -1,6 +1,7 @@
 package pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,6 +18,11 @@ public class ArticlePage {
     public ArticlePage(BaseFunction baseFunc) {
         this.baseFunc = baseFunc;
         LOGGER.info("Start working in Article Page class");
+        // добавили бесплатные проверки в конструктор
+//        WebElement title = baseFunc.getElementList(ARTICLE_PAGE_TITLE).get(0);
+//        Assertions.assertNotNull(title, "There is no title on Article page");
+//        WebElement comments = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS).get(0);
+//        Assertions.assertNotNull(comments, "There is no comment on Article page");
 
     }
 
