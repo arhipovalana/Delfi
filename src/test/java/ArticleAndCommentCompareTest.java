@@ -44,12 +44,12 @@ public class ArticleAndCommentCompareTest {
 
         LOGGER.info("Get article title text");
         String articlePageTitle = articlePage.getTitleText();
-        assertNotNull(articlePageTitle, "There is no title on Article page");
+//        assertNotNull(articlePageTitle, "There is no title on Article page"); // добавили эту проверку в конструктор на пэйдже
 //        System.out.println("(" + (articleNumber+1) +") article title on Article page is: " + articlePageTitle);
 
         LOGGER.info("Get comment count number");
         Integer articlePageComments = articlePage.getCommentCount();
-        assertNotNull(articlePageComments,"There is no comments on Article page");
+//        assertNotNull(articlePageComments,"There is no comments on Article page");    // добавили эту проверку в конструктор на пэйдже
 //        System.out.println("(" + (articleNumber+1) + ") article comment count on Article page is: " + articlePageComments);
 
         LOGGER.info("Check titles");
