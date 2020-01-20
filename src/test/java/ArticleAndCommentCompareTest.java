@@ -12,17 +12,18 @@ public class ArticleAndCommentCompareTest {
 
     private BaseFunction baseFunc = new BaseFunction();
     private final Logger LOGGER = LogManager.getLogger(ArticleAndCommentCompareTest.class);
-    private int articleNumber = 10;
+    private final String URL = "https://delfi.lv";
+    private int articleNumber = 4;
 
     @Test
     public void titleAndCommentsTest() {
 
-        LOGGER.info("Open Delfi home page");
-        baseFunc.goToUrl("https://delfi.lv");
+        LOGGER.info("Open home page");
+        baseFunc.goToUrl(URL);
 
         HomePage homePage = new HomePage(baseFunc);
 
-        LOGGER.info("Get title text for article Nm " +articleNumber);
+        LOGGER.info("Get title text for article Nm " + articleNumber);
         String homePageTitle = homePage.getTitleText(articleNumber);
 
         LOGGER.info("Get article comment count");

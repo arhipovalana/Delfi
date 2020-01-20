@@ -14,7 +14,7 @@ public class BaseFunction {
 
     private WebDriver browserDrv;
     private WebDriverWait wait;
-//    private final Logger LOGGER = LogManager.getLogger(BaseFunction.class);
+
 
     public BaseFunction() {
         System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
