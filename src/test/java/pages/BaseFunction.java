@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +16,6 @@ public class BaseFunction {
 
     private WebDriver browserDrv;
     private WebDriverWait wait;
-
 
     public BaseFunction() {
         System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
@@ -31,12 +32,30 @@ public class BaseFunction {
         browserDrv.get(url);
     }
 
+    public void waitForVisibilityOfElement(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public void waitForVisibilityOfElementList(By locator) {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
     public WebElement getElement(By locator) {
+        waitForVisibilityOfElement(locator);
         return browserDrv.findElement(locator);
     }
 
     public List<WebElement> getElementList(By locator) {
+        waitForVisibilityOfElementList(locator);
         return browserDrv.findElements(locator);
+    }
+
+    public String getElementText (List<WebElement> elementList, int elementIndex) {
+        if (!elementList.isEmpty()) {
+            return removeBrackets(elementList.get(elementIndex).getText().trim());
+        } else {
+            return null;
+        }
     }
 
     public String removeBrackets(String textWithBrackets) {
@@ -47,7 +66,12 @@ public class BaseFunction {
         return Integer.valueOf(text);
     }
 
+    public void waitForElementIsClickable(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public void clickOnElement(WebElement element) {
+        waitForElementIsClickable(element);
         element.click();
     }
 
