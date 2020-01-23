@@ -23,10 +23,30 @@ public class ArticlePage {
         Assertions.assertNotNull(comments, "There is no comment on Article page");
     }
 
-    public String getTitleText() {
+    public String getTitleText(){
         List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
-        return baseFunc.getElementText(titleList,0);
+        if (!titleList.isEmpty()) {
+            return titleList.get(0).getText().trim();
+        } else {
+            return null;
+        }
     }
+
+        public Integer getCommentCount() {
+        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
+        if (!commentList.isEmpty()) {
+            String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
+            return baseFunc.changeStringToInteger(commentCount);
+        } else {
+            Integer commentCount = 0;
+            return commentCount;
+        }
+    }
+
+//    public String getTitleText() {
+//        List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
+//        return baseFunc.getElementText(titleList,0);
+//    }
 
 //    public Integer getCommentCount() {
 //        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
@@ -39,11 +59,11 @@ public class ArticlePage {
 //        }
 //    }
 
-    public Integer getCommentCount() {
-        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
-        Integer commentCount = baseFunc.changeStringToInteger(baseFunc.getElementText(commentList,0));
-        return commentCount;
-    }
+//    public Integer getCommentCount() {
+//        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
+//        Integer commentCount = baseFunc.changeStringToInteger(baseFunc.getElementText(commentList,0));
+//        return commentCount;
+//    }
 
     public CommentPage openCommentPage() {
         WebElement element = baseFunc.getElement(ARTICLE_PAGE_COMMENTS);
