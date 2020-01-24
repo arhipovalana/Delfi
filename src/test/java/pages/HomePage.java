@@ -27,17 +27,32 @@ public class HomePage {
     }
 
     public String getTitleText(Integer articleIndex) {
-        if (getArticleList().size() >= articleIndex) {
-
+        if (getArticleList().size()>articleIndex){
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
-
-            return baseFunc.getElementText(titleList, 0);
+            if (!titleList.isEmpty()){
+                return titleList.get(0).getText().trim();
+            } else {
+                return null;
+            }
         } else {
             Assertions.assertNotNull(null,"Could not get title text");
             return null;
         }
     }
+
+//    public String getTitleText(Integer articleIndex) {
+//        if (getArticleList().size() >= articleIndex) {
+//
+//            WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
+//            List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
+//
+//            return baseFunc.getElementText(titleList, 0);
+//        } else {
+//            Assertions.assertNotNull(null,"Could not get title text");
+//            return null;
+//        }
+//    }
 
     public Integer getCommentCount(Integer articleIndex) {
         if (getArticleList().size() >= articleIndex) {
