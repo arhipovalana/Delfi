@@ -50,6 +50,11 @@ public class BaseFunction {
         return browserDrv.findElements(locator);
     }
 
+//    public String getElementText (List<WebElement> elementList, int elementIndex) {
+////        !elementList.isEmpty() {
+//            return elementList.get(elementIndex).getText().trim();
+//    }
+
     public String getElementText (List<WebElement> elementList, int elementIndex) {
         if (!elementList.isEmpty()) {
             return removeBrackets(elementList.get(elementIndex).getText().trim());
@@ -60,10 +65,6 @@ public class BaseFunction {
 
     public String removeBrackets(String textWithBrackets) {
         return textWithBrackets.replaceAll("([()])", "").trim();
-    }
-
-    public Integer changeStringToInteger(String text) {
-        return Integer.valueOf(text);
     }
 
     public void waitForElementIsClickable(WebElement element) {

@@ -1,5 +1,4 @@
 package pages;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-
 public class HomePage {
 
     private BaseFunction baseFunc;
@@ -30,10 +28,13 @@ public class HomePage {
 
     public String getTitleText(Integer articleIndex) {
         if (getArticleList().size() >= articleIndex) {
+
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
+
             return baseFunc.getElementText(titleList, 0);
         } else {
+            Assertions.assertNotNull(null,"Could not get title text");
             return null;
         }
     }
@@ -43,7 +44,7 @@ public class HomePage {
             WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
             List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
             String commentCount = baseFunc.getElementText(commentList, 0);
-            return baseFunc.changeStringToInteger(commentCount);
+            return Integer.valueOf(commentCount);
         } else {
             Integer commentCount = 0;
             return commentCount;

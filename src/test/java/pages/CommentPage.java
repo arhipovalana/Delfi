@@ -24,7 +24,7 @@ public class CommentPage {
         WebElement comments = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT).get(0);
         Assertions.assertNotNull(comments, "There is no comment on Article page");
     }
-
+// ПЕРЕДЕЛАТЬ МЕТОД
     public String getTitleText() {
         List<WebElement> titleList = baseFunc.getElementList(COMMENT_PAGE_TITLE);
         return baseFunc.getElementText(titleList,0);
@@ -33,8 +33,8 @@ public class CommentPage {
 //    public Integer getCommentCount() {
 //        List<WebElement> commentList = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT);
 //        if (!commentList.isEmpty()) {
-//            Integer commentCountAnonymous = baseFunc.changeStringToInteger(baseFunc.removeBrackets(commentList.get(0).getText()));
-//            Integer commentCountRegistered = baseFunc.changeStringToInteger(baseFunc.removeBrackets(commentList.get(1).getText()));
+//            Integer commentCountAnonymous = Integer.valueOf(baseFunc.removeBrackets(commentList.get(0).getText()));
+//            Integer commentCountRegistered = Integer.valueOf(baseFunc.removeBrackets(commentList.get(1).getText()));
 //            return commentCountAnonymous + commentCountRegistered;
 //        } else {
 //            Integer commentCount = 0;
@@ -44,8 +44,8 @@ public class CommentPage {
 
     public Integer getCommentCount() {
         List<WebElement> commentList = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT);
-        Integer commentCountAnonymous = baseFunc.changeStringToInteger(baseFunc.getElementText(commentList,0));
-        Integer commentCountRegistered = baseFunc.changeStringToInteger(baseFunc.getElementText(commentList,1));
+        Integer commentCountAnonymous = Integer.valueOf(baseFunc.getElementText(commentList,0));
+        Integer commentCountRegistered = Integer.valueOf(baseFunc.getElementText(commentList,1));
             return commentCountAnonymous + commentCountRegistered;
     }
 

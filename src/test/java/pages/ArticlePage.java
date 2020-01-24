@@ -28,31 +28,35 @@ public class ArticlePage {
         if (!titleList.isEmpty()) {
             return titleList.get(0).getText().trim();
         } else {
+            Assertions.assertNotNull(null,"Could not get title text");
             return null;
         }
     }
+
+    //    public String getTitleText() {
+//        List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
+//        return baseFunc.getElementText(titleList,0);
+//    }
+
 
         public Integer getCommentCount() {
         List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
         if (!commentList.isEmpty()) {
             String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
-            return baseFunc.changeStringToInteger(commentCount);
+            return Integer.valueOf(commentCount);
         } else {
             Integer commentCount = 0;
             return commentCount;
         }
     }
 
-//    public String getTitleText() {
-//        List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
-//        return baseFunc.getElementText(titleList,0);
-//    }
+
 
 //    public Integer getCommentCount() {
 //        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
 //        if (!commentList.isEmpty()) {
 //            String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
-//            return baseFunc.changeStringToInteger(commentCount);
+//            return Integer.valueOf(commentCount);
 //        } else {
 //            Integer commentCount = 0;
 //            return commentCount;
