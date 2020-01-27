@@ -1,9 +1,11 @@
 package pages;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class ArticlePage {
@@ -23,12 +25,11 @@ public class ArticlePage {
         Assertions.assertNotNull(comments, "There is no comment on Article page");
     }
 
-    public String getTitleText(){
+    public String getTitleText() {
         List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
         if (!titleList.isEmpty()) {
             return titleList.get(0).getText().trim();
         } else {
-            Assertions.assertNotNull(null,"Could not get title text");
             return null;
         }
     }
@@ -43,18 +44,6 @@ public class ArticlePage {
             return commentCount;
         }
     }
-
-//    public Integer getCommentCount() {
-//        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
-//        if (!commentList.isEmpty()) {
-//            String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
-//            return Integer.valueOf(commentCount);
-//        } else {
-//            Integer commentCount = 0;
-//            return commentCount;
-//        }
-//    }
-
 
     public CommentPage openCommentPage() {
         WebElement element = baseFunc.getElement(ARTICLE_PAGE_COMMENTS);

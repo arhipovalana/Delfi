@@ -65,4 +65,5 @@ public class HomePage {
         baseFunc.clickOnElement(element);
         return new ArticlePage(baseFunc);
     }
+
 }

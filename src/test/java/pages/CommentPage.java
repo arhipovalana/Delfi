@@ -24,29 +24,26 @@ public class CommentPage {
         WebElement comments = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT).get(0);
         Assertions.assertNotNull(comments, "There is no comment on Article page");
     }
-// ПЕРЕДЕЛАТЬ МЕТОД
+
     public String getTitleText() {
         List<WebElement> titleList = baseFunc.getElementList(COMMENT_PAGE_TITLE);
-        return baseFunc.getElementText(titleList,0);
+        if (!titleList.isEmpty()) {
+            return titleList.get(0).getText().trim();
+        } else {
+            return null;
+        }
     }
-
-//    public Integer getCommentCount() {
-//        List<WebElement> commentList = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT);
-//        if (!commentList.isEmpty()) {
-//            Integer commentCountAnonymous = Integer.valueOf(baseFunc.removeBrackets(commentList.get(0).getText()));
-//            Integer commentCountRegistered = Integer.valueOf(baseFunc.removeBrackets(commentList.get(1).getText()));
-//            return commentCountAnonymous + commentCountRegistered;
-//        } else {
-//            Integer commentCount = 0;
-//            return commentCount;
-//        }
-//    }
 
     public Integer getCommentCount() {
         List<WebElement> commentList = baseFunc.getElementList(COMMENT_PAGE_COMMENT_COUNT);
-        Integer commentCountAnonymous = Integer.valueOf(baseFunc.getElementText(commentList,0));
-        Integer commentCountRegistered = Integer.valueOf(baseFunc.getElementText(commentList,1));
+        if (!commentList.isEmpty()) {
+            Integer commentCountAnonymous = Integer.valueOf(baseFunc.removeBrackets(commentList.get(0).getText()));
+            Integer commentCountRegistered = Integer.valueOf(baseFunc.removeBrackets(commentList.get(1).getText()));
             return commentCountAnonymous + commentCountRegistered;
+        } else {
+            Integer commentCount = 0;
+            return commentCount;
+        }
     }
 
 }
