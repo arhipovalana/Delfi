@@ -29,66 +29,35 @@ public class HomePage {
     }
 
     public String getTitleText(Integer articleIndex) {
-        Assertions.assertNotNull(getArticleList().size() >= articleIndex, "There is no article No " + articleIndex);
-        WebElement article = getArticleList().get(articleIndex);
-        List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES);
-        if (!titleList.isEmpty()) {
-            return titleList.get(0).getText().trim();
+        if (getArticleList().size() >= articleIndex){
+            WebElement article = getArticleList().get(articleIndex);
+            List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES);
+            if (!titleList.isEmpty()){
+                return titleList.get(0).getText().trim();
+            } else {
+                return null;
+            }
         } else {
-            Assertions.assertNotNull(null, "Could not get title text");
             return null;
         }
     }
 
-//    public String getTitleText(Integer articleIndex) {
-//        if (getArticleList().size() >= articleIndex){
-//            WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
-//
-//            List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES); // тут ищу элемент в элементе Х
-//            if (!titleList.isEmpty()){
-//                return titleList.get(0).getText().trim();
-//            } else {
-//                Assertions.assertNotNull(null,"Could not get title text");
-//                return null;
-//            }
-//        } else {
-//            Assertions.assertNotNull(null,"There is no article No " + articleIndex);
-//            return null;
-//        }
-//    }
-
     public Integer getCommentCount(Integer articleIndex) {
-        Assertions.assertNotNull(getArticleList().size() >= articleIndex, "There is no article No " + articleIndex);
+        if (getArticleList().size() >= articleIndex) {
+            WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
 
-        WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
-
-        List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
-        if (!commentList.isEmpty()) {
-            String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
-            return Integer.valueOf(commentCount);
+            List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
+            if (!commentList.isEmpty()) {
+                String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
+                return Integer.valueOf(commentCount);
+            } else {
+                Integer commentCount = 0;
+                return commentCount;
+            }
         } else {
-//            Integer commentCount = 0;
-//            return commentCount;
-            return 0;
+            return null;
         }
     }
-
-//    public Integer getCommentCount(Integer articleIndex) {
-//        if (getArticleList().size() >= articleIndex) {
-//            WebElement article = getArticleList().get(articleIndex); // тут получила элемент номер Х
-//
-//            List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS); // тут ищу элемент в элементе Х
-//            if (!commentList.isEmpty()) {
-//                String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
-//                return Integer.valueOf(commentCount);
-//            } else {
-//                Integer commentCount = 0;
-//                return commentCount;
-//            }
-//        } else {
-//            return null;
-//        }
-//    }
 
 //    public String getTitleText(Integer articleIndex) {
 //        if (getArticleList().size() >= articleIndex) {
@@ -112,8 +81,6 @@ public class HomePage {
 //        } else {
 //            Integer commentCount = 0;
 //            return commentCount;
-////            return 0;
-//}
 //    }
 
     public ArticlePage openArticlePage(Integer articleIndex) {

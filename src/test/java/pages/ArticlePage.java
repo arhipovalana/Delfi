@@ -33,13 +33,7 @@ public class ArticlePage {
         }
     }
 
-    //    public String getTitleText() {
-//        List<WebElement> titleList = baseFunc.getElementList(ARTICLE_PAGE_TITLE);
-//        return baseFunc.getElementText(titleList,0);
-//    }
-
-
-        public Integer getCommentCount() {
+    public Integer getCommentCount() {
         List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
         if (!commentList.isEmpty()) {
             String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
@@ -49,8 +43,6 @@ public class ArticlePage {
             return commentCount;
         }
     }
-
-
 
 //    public Integer getCommentCount() {
 //        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
@@ -63,11 +55,6 @@ public class ArticlePage {
 //        }
 //    }
 
-//    public Integer getCommentCount() {
-//        List<WebElement> commentList = baseFunc.getElementList(ARTICLE_PAGE_COMMENTS);
-//        Integer commentCount = baseFunc.changeStringToInteger(baseFunc.getElementText(commentList,0));
-//        return commentCount;
-//    }
 
     public CommentPage openCommentPage() {
         WebElement element = baseFunc.getElement(ARTICLE_PAGE_COMMENTS);
