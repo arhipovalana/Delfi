@@ -22,7 +22,7 @@ public class BaseFunction {
         browserDrv = new ChromeDriver();
         browserDrv.manage().window().maximize();
         browserDrv.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(browserDrv, 10, 500);
+        wait = new WebDriverWait(browserDrv, 30, 500);
     }
 
     public void goToUrl(String url) {
@@ -46,7 +46,7 @@ public class BaseFunction {
     }
 
     public List<WebElement> getElementList(By locator) {
-        waitForVisibilityOfElementList(locator);
+//        waitForVisibilityOfElementList(locator);
         return browserDrv.findElements(locator);
     }
 

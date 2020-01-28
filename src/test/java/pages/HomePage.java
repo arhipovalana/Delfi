@@ -29,9 +29,8 @@ public class HomePage {
     }
 
     public String getTitleText(Integer articleIndex) {
-        if (getArticleList().size() > articleIndex) {
+        if (getArticleList().size() >= articleIndex) {
             WebElement article = getArticleList().get(articleIndex);
-
             List<WebElement> titleList = article.findElements(HOME_PAGE_ARTICLE_TITLES);
             if (!titleList.isEmpty()) {
                 return titleList.get(0).getText().trim();
@@ -46,7 +45,6 @@ public class HomePage {
     public Integer getCommentCount(Integer articleIndex) {
         if (getArticleList().size() >= articleIndex) {
             WebElement article = getArticleList().get(articleIndex);
-
             List<WebElement> commentList = article.findElements(HOME_PAGE_ARTICLE_COMMENTS);
             if (!commentList.isEmpty()) {
                 String commentCount = baseFunc.removeBrackets(commentList.get(0).getText());
